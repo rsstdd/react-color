@@ -3,6 +3,7 @@ import Routes from 'config/routes';
 import PropTypes from 'prop-types';
 
 import Menu from 'components/Global/Menu';
+import Sidebar from 'components/Global/SideBar';
 
 export default class App extends Component {
   static propTypes = {
@@ -14,7 +15,8 @@ export default class App extends Component {
       <div className='App'>
         <Menu />
 
-        <div className='Page'>
+        <div className="App-body">
+          <Sidebar />
           <Routes />
         </div>
       </div>

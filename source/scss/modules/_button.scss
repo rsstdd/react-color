@@ -1,0 +1,20 @@
+$black: #333;
+$white: #FFF;
+
+button {
+  background: $white;
+  border-radius: .25rem;
+  border: 0.075rem solid $black;
+  font-size: .95rem;
+  
+  cursor: pointer;
+  padding: 0.7rem 1rem;
+
+   &:disabled {
+    opacity: 0.3;
+  }
+
+  &:hover {
+    background: $white;
+  }
+}

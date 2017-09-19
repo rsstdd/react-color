@@ -1,0 +1,44 @@
+.App {
+  display: flex;
+  height: 100%; /* 1, 3 */
+  // These two
+  flex-flow: column nowrap;
+}
+
+.App-header,
+.App-footer {
+  flex: none; /* 2 */
+}
+
+.App-body {
+  display: flex;
+  flex-direction: row;
+  flex: 1 0 auto; /* 2 */
+  align-items: stretch;
+}
+
+.App-content {
+  flex-grow: 2;
+  order: 1;
+  flex-basis: 80%;
+  height: 100vh;
+}
+
+.App-sidebar {
+  flex: 1 6 20%;
+  order: -1;
+  height: 100vh;
+  // flex-basis: 20%;
+}
+
+@include lg {
+  .App-body {
+    flex-direction: row;
+  }
+  .App-content {
+    flex: 1;
+  }
+  .App-nav, .App-sidebar {
+    flex: 0 0 12em;
+  }
+}

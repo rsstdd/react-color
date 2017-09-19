@@ -1,87 +1,24 @@
-$font-family-serif: Garamond, "Times New Roman", serif;
-$font-family-sans-serif: "Helvetica Neue", Helvetica, Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro|Source+Serif+Pro');
 
-$grey-border: #eee;
-$grey-text: #aaa;
-$black: #000;
+
+$font-family-serif: 'Source Serif Pro', serif;
+$font-family-sans-serif: 'Source Sans Pro', sans-serif;
+
+$sidebar-color: #D6D8D8;
+
+$black: #333;
 $white: #fff;
-
-html {
-  font-size: 10px;
-
-  @include lg {
-    font-size: 12px;
-  }
-
-  @include xl {
-    font-size: 14px;
-  }
-}
 
 body {
   color: $black;
   font-family: $font-family-sans-serif;
 }
 
-.App {
-  font-size: 1.8rem;
-  padding: 2rem;
 
-  @include md {
-    padding: 3rem;
-  }
-
-  @include md {
-    padding: 4rem;
-  }
-}
-
-a {
-  color: $grey-text;
-}
-
-a:hover {
-  color: $black;
-}
-
-h1,
-h2,
-h3 {
-  margin: 2rem 0;
-}
-
-h1 {
-  font-size: 2.5rem;
-}
-
-h2 {
-  font-size: 2rem;
-}
-
-h3 {
-  font-size: 1.7rem;
-}
-
-button {
-  background: transparent;
-  border-radius: 1.6rem;
-  border: 0.1rem solid $black;
-  cursor: pointer;
-  font-size: 1.5rem;
-  padding: 0.7rem 2rem;
-}
-
-button:disabled {
-  opacity: 0.3;
-}
-
-button:hover {
-  background: $white;
-}
 
 .Menu {
   align-items: center;
-  border-bottom: 1px solid $grey-border;
+  // border-bottom: 1px solid $grey-border;
   display: flex;
   justify-content: space-between;
   padding-bottom: 2rem;
@@ -108,7 +45,7 @@ button:hover {
     height: 100vh;
     top: 0;
     left: 0;
-    border-right: 1px solid $grey-border;
+    // border-right: 1px solid $grey-border;
     width: 20rem;
     padding: 4rem;
   }
@@ -161,7 +98,7 @@ button:hover {
 }
 
 .BackgroundImgExample {
-  background-image: url(../assets/img/book1.jpg);
+  // background-image: url(../assets/img/book1.jpg);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -175,6 +112,6 @@ button:hover {
 
 hr {
   border: 0;
-  border-top: 1px solid $grey-border;
+  // border-top: 1px solid $grey-border;
   margin: 2rem 0;
 }

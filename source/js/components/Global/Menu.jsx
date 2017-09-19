@@ -1,43 +1,43 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
-import { routeCodes } from 'config/routes';
-import workAndCoLogoImg from '../../../assets/img/workco-logo.svg';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { reduxForm, Field, Form } from 'redux-form';
+import * as actions from './../../actions/colorAction.js';
 
-export default class Menu extends Component {
+
+//  Images
+// ---------
+import navLogo from '../../../assets/img/logo-symbol.svg';
+
+class Menu extends Component {
+
+  handleFormSubmit = ({ colorSearch }) => {
+    console.log('HANDLE FORM SUBMIT: ==> ', colorSearch);
+    // this.props.signinUser({ email, password, name, location });
+  }
+
   render() {
+    const { handleSubmit } = this.props;
+
     return (
-      <div className='Menu'>
-        <div className='Menu-logo'>
-          <img
-            src={ workAndCoLogoImg }
-            alt='Work & Co logo'
-          />
+      <nav className="navbar">
+        <div className='navbar__logo'>
+          <img src={ navLogo } alt="Logo"/>
         </div>
-        <div className='Menu-links'>
-          <NavLink
-            activeClassName='Menu-link--active'
-            className='Menu-link'
-            exact
-            to={ routeCodes.DASHBOARD }
-          >
-            Home
-          </NavLink>
-          <NavLink
-            activeClassName='Menu-link--active'
-            className='Menu-link'
-            to={ routeCodes.ABOUT }
-          >
-            About
-          </NavLink>
-          <NavLink
-            activeClassName='Menu-link--active'
-            className='Menu-link'
-            to='/404'
-          >
-            404
-          </NavLink>
+        <div className='navbar__search-bar'>
+          <Form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
+            <Field
+              name="colorSearch"
+              component="input"
+              type="text"
+              placeholder="Search"
+            />
+          </Form>
         </div>
-      </div>
+      </nav>
     );
   }
 }
+
+const form = reduxForm({ form: 'colorForm' })(Menu);
+export default connect(null, actions)(form);

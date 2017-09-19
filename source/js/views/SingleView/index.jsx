@@ -20,7 +20,7 @@ export default class SinlgeView extends Component {
   render() {
 
     return (
-      <div className='SinlgeView App-content'>
+      <div className='SinlgeView Layout__content'>
         <h1>Something</h1>
       </div>
     );

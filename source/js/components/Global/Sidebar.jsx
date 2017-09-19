@@ -8,7 +8,7 @@ export default class Sidebar extends Component {
   render() {
 
     return (
-      <nav className='sidebar App-sidebar'>
+      <nav className='sidebar Layout__sidebar'>
         <div className='sidebar__button'>
           <button>
             Random Color

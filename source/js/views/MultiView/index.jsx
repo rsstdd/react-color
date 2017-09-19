@@ -19,8 +19,37 @@ export default class MultiView extends Component {
   render() {
 
     return (
-      <div className='App-content'>
-        <h1>Hello, World</h1>
+      <div className='Layout__content'>
+        <div className="tile Layout__tile" style={{backgroundColor:"#314036"}}>
+          <div className="tile__name">
+            <h3>#ffc23</h3>
+          </div>
+        </div>
+        <div className="tile Layout__tile">
+          <div className="tile__name">
+            <h3>#333</h3>
+          </div>
+        </div>
+        <div className="tile Layout__tile">
+          <div className="tile__name">
+            <h3>#333</h3>
+          </div>
+        </div>
+        <div className="tile Layout__tile">
+          <div className="tile__name">
+            <h3>#333</h3>
+          </div>
+        </div>
+        <div className="tile Layout__tile">
+          <div className="tile__name">
+            <h3>#333</h3>
+          </div>
+        </div>
+        <div className="tile Layout__tile">
+          <div className="tile__name">
+            <h3>#333</h3>
+          </div>
+        </div>
       </div>
     );
   }

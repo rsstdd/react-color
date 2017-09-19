@@ -12,10 +12,10 @@ export default class App extends Component {
 
   render() {
     return (
-      <div className='App'>
+      <div className='Layout'>
         <Menu />
 
-        <div className="App-body">
+        <div className="Layout__body">
           <Sidebar />
           <Routes />
         </div>

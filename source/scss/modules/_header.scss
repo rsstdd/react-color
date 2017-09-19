@@ -35,3 +35,14 @@ $white: #FFF;
     }
   }
 }
+
+@include sm {
+  .navbar {
+    border: solid 2px darkslategrey;
+    padding: 1em;
+    
+    &__search-bar {
+      display: none;
+    }
+  }
+}

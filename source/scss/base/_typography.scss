@@ -1,6 +1,18 @@
+// -------------------------------------------------------------
+  // Font
+// -------------------------------------------------------------
+ @import url('https://fonts.googleapis.com/css?family=Source+Serif+Pro');
+// -------------------------------------------------------------
+  // Variables
+// -------------------------------------------------------------
+$font-family-serif: 'Source Serif Pro', serif;
 
-// Font Size
+// -------------------------------------------------------------
+  // Font Size
+// -------------------------------------------------------------
 html {
+  color: $black;
+  font-family: $font-family-serif;
   font-size: 16px;
   @include md {
     font-size: 18px;
@@ -17,7 +29,7 @@ h3 {
 }
 
 h1 {
-  @include lg {
+  @include sm {
     font-size: 2.3353em;
     line-height: 1.3;
   }
@@ -25,14 +37,14 @@ h1 {
 
 h2 {
   font-size: 2.3353em;
-  @include lg {
+  @include sm {
     font-size: 1.769em;
   }
 }
 
 h3 {
   font-size: 1.769em;
-  @include lg {
+  @include sm {
     font-size: 1.33em;
   }
 }

@@ -7,10 +7,7 @@ import PropTypes from 'prop-types';
 // }))
 export default class SinlgeView extends Component {
   static propTypes = {
-    // asyncLoading: PropTypes.bool,
-    // counter: PropTypes.number,
-    // from react-redux connect
-    dispatch: PropTypes.func,
+    // dispatch: PropTypes.func,
   }
 
   constructor() {

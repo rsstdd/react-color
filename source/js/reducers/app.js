@@ -1,6 +1,8 @@
-// import initialState from './initialState'
-// 
-// // export default function reducer(state = initialState, action = {}) {
-// // 
-// //   return fn ? fn(state, action) : state;
-// // }
+import initialState from './initialState'
+
+const actionsMap = {};
+
+export default function reducer(state = initialState, action = {}) {
+  const fn = actionsMap[action.type];
+  return fn ? fn(state, action) : state;
+}

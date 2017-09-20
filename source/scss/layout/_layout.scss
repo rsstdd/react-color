@@ -7,13 +7,11 @@
 // --------------------------------
   // Variables
 // ---------------------------------
-$max-width: 100%;
-
+$full-width: 100%;
 $sidebar-width: 20%;
-
-$max-title-height: 280px;
+$max-title-height: 25%;
 $max-tile-width: 20%;
-$min-tile-width: 25%;
+$min-tile-width: 20%;
 
 
 // --------------------------------
@@ -51,6 +49,9 @@ $min-tile-width: 25%;
     flex: 2 0 80%;
     order: 1;
     padding: 2em;
+    width: 80%;
+    height: auto;
+    overflow-x: scroll;
 
     // Tile Grid
     display: flex;
@@ -60,14 +61,16 @@ $min-tile-width: 25%;
   }
 
   &__tile {
+    display: inline-flex;
     flex: 1 0 auto;
     margin-bottom: 0;
     max-height: $max-title-height;
     max-width: $max-tile-width;
     min-width: $min-tile-width;
     min-height: $min-tile-width;
+    width: $min-tile-width;
+    height: $max-title-height;
   }
-
 }
 
 
@@ -79,11 +82,11 @@ $min-tile-width: 25%;
     
     &__content {
       flex-flow: column wrap;
-      width: $max-width;
+      width: $full-width;
     }
     
     &__tile {
-      width: $max-width;
+      width: $full-width;
       max-height: $max-title-height;
     }
   }

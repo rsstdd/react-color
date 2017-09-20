@@ -1,6 +1,8 @@
 import { Map } from 'immutable';
 
 export default Map({
+  // pager: {},
+  pageOfItems: [],
   colorData: [
     {
       id: 1,
@@ -399,7 +401,7 @@ export default Map({
     },
     {
       id: 78,
-      hex: '#2c273a',
+      hex: '#2c263a',
       color: 'gray'
     },
     {
@@ -474,7 +476,7 @@ export default Map({
     },
     {
       id: 93,
-      hex: '#d1e231',
+      hex: '#d1e230',
       color: 'yellow'
     },
     {

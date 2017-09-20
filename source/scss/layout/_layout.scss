@@ -9,6 +9,7 @@
 // ---------------------------------
 $full-width: 100%;
 $sidebar-width: 20%;
+
 $max-title-height: 25%;
 $max-tile-width: 20%;
 $min-tile-width: 20%;
@@ -25,6 +26,13 @@ $min-tile-width: 20%;
 
   &__header {
     flex: none; /* 2 */
+    flex-shrink: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    min-width: 100%;
+    min-height: 5%;
+    height: 10%;
   }
 
   // --------------------------------
@@ -65,7 +73,7 @@ $min-tile-width: 20%;
     flex: 1 0 auto;
     margin-bottom: 0;
     max-height: $max-title-height;
-    max-width: $max-tile-width;
+    max-width: $full-width;
     min-width: $min-tile-width;
     min-height: $min-tile-width;
     width: $min-tile-width;

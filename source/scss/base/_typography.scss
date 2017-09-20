@@ -14,11 +14,17 @@ html {
   color: $black;
   font-family: $font-family-serif;
   font-size: 16px;
-  @include md {
+
+  @include min-md {
     font-size: 18px;
   }
-  @include lg {
+
+  @include min-lg {
     font-size: 20px;
+  }
+
+  @include min-xl {
+    font-size: 26px;
   }
 }
 

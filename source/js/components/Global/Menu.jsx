@@ -20,7 +20,7 @@ class Menu extends Component {
     const { handleSubmit } = this.props;
 
     return (
-      <nav className="navbar">
+      <nav className="navbar Layout__header">
         <div className='navbar__logo'>
           <img src={ navLogo } alt="Logo"/>
         </div>

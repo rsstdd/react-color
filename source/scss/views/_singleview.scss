@@ -1,0 +1,68 @@
+// File Name: _singleview.scss
+// Description: Single View Styles
+// Used by: app.scss for SingleView/index.jsx
+// ------------------------------------------------------------
+
+// // --------------------------------
+//   // Variables
+// // ---------------------------------
+$border-color: #D6D8D8;
+$font-color:#555656;
+$white: #fff;
+
+
+// --------------------------------
+    // Styles
+// ---------------------------------
+.single-view {
+  // height: 100%;
+  // width: 100%;
+
+  // Big single Tile
+  &__tile {
+    border: 0.0025rem solid $border-color;
+    box-shadow: 0 .35px .5px .5px rgba(51,51,51,.25);
+    border-radius: .35rem;
+  }
+
+    // Big tile Name
+  &__tile--name {
+    padding: 1rem 1.5rem;
+    background-color: $white;
+    border-top: 0.0025rem solid $border-color;
+    border: 0.0025rem solid $border-color;
+    box-shadow: 0 .35px .5px .5px rgba(51,51,51,.25);
+    border-radius: .35rem;
+  }
+  
+    // Small tile container
+  &__tile-list {
+    border-radius: .35rem;
+  }
+  
+    // Small tiles 
+  &__single-view-tile {
+    border: 0.0025rem solid $border-color;
+    box-shadow: 0 .35px .5px .5px rgba(51,51,51,.25);
+    border-radius: .35rem;
+  }
+  
+    // Small tile Name
+  &__single-view-tile__name {
+    font-size: .5em;
+    padding: .5rem 1rem;
+    background-color: $white;
+    border-top: 0.0025rem solid $border-color;
+    border: 0.0025rem solid $border-color;
+    box-shadow: 0 .35px .5px .5px rgba(51,51,51,.25);
+    border-radius: .35rem;
+  
+    h3 {
+      margin: 0;
+    }
+  }
+  
+  &__button {
+    align-self: center;
+  }
+}

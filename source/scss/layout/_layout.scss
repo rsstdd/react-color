@@ -20,9 +20,8 @@ $min-tile-width: 20%;
 // ---------------------------------
 .Layout {
   display: flex;
-  flex-flow: column nowrap;
+  flex-direction: column;
   height: 100%; /* 1, 3 */
-  height: 100vh;
 
   &__header {
     flex: none; /* 2 */
@@ -39,6 +38,7 @@ $min-tile-width: 20%;
     // Sidebar/SingleView/MultiView
   // ---------------------------------
   &__body {
+    height: 100%;
     display: flex;
     flex-direction: row;
     flex: 1 0 auto; /* 2 */
@@ -53,12 +53,12 @@ $min-tile-width: 20%;
   // --------------------------------
     // Flex Grid > MultiView
   // ---------------------------------
-  &__content {
+  &__multi-content {
     flex: 2 0 80%;
+    height: 100%;
+    width: 80%;
     order: 1;
     padding: 2em;
-    width: 80%;
-    height: auto;
     overflow-x: scroll;
 
     // Tile Grid
@@ -72,15 +72,90 @@ $min-tile-width: 20%;
     display: inline-flex;
     flex: 1 0 auto;
     margin-bottom: 0;
-    max-height: $max-title-height;
-    max-width: $full-width;
-    min-width: $min-tile-width;
-    min-height: $min-tile-width;
-    width: $min-tile-width;
-    height: $max-title-height;
+    max-height: 300px;
+    max-width: 200px;
+    min-width: 200px;
+    min-height: 300px;
+    width: 200px;  //     Chrome bug 
+    height: 300px; // No % on flex itms
+  
+    :before {
+      content: ""
+    }
   }
-}
+  
+  // --------------------------------
+    // Flex Grid > SingleView/Detail
+  // ---------------------------------
+  &__single-content {
+    min-height: 100%;
+    width: 80%;
+    max-width: 80%;
+    padding: 2em;
+  }
 
+    // Big single Tile
+  &__single-view-tile {
+    width: 80%;
+    height: 50%;
+    margin: 0 auto;
+    margin-bottom: 10%;
+    
+    // Tile Grid
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  // Big Tile Name
+  &__single-view-tile--name {
+    margin: 0;
+    width: 100%;
+    align-self: flex-end;
+
+    h3 {
+      margin: 0;
+    }
+  }
+
+    // Small tile container
+  &__single-view__tile-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 100%;
+    height: 25%;
+  }
+
+    // Small tiles 
+  &__single-view-small-tile {
+    width: 20%;
+    min-width: 15%;
+  
+    // Tile Grid
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  
+  &__single-view-tile__name {
+    margin: 0;
+    width: 100%;
+    height: 15%;
+
+    // Tile 
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    h3 {
+      margin: 0 !important;
+    }
+  }
+  
+}
 
 // -------------------------------------
   // Project Structure (Mobile Devices)

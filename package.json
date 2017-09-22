@@ -4,6 +4,9 @@
   "private": false,
   "license": "MIT",
   "main": "index.js",
+  "engines": {
+    "node": "v7.10.0"
+  },
   "scripts": {
     "start": "webpack-dev-server",
     "client:dev": "webpack-dashboard -t 'ReactColor' -- webpack-dev-server",

@@ -1,85 +1,108 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
-import { routeCodes } from 'config/routes';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
+import { filterColor } from '../../actions/colorAction';
 
+@connect(state => ({
+  colorData: state.app.get('colorData'),
+  currentColor: state.app.get('currentColor'),
+}))
 export default class Sidebar extends Component {
+  static propTypes = {
+    colorData: PropTypes.array,
+    currentColor: PropTypes.object,
+    dispatch: PropTypes.func,
+  }
+
+  constructor() {
+    super()
+    
+    this.getRandomColor = this.getRandomColor.bind(this);
+    this.filterColor = this.filterColor.bind(this);
+  }
+
+  getRandomColor() {
+    const { dispatch } = this.props;
+    console.log('getRandomColor');
+  }
+
+  filterColor(color) {
+    console.log(colorData);
+    const { dispatch, colorData } = this.props;
+    console.log('filterColor', color);
+    if (colorData) {
+      const filterColor = colorData.filter(item => item.color === `${color}`);
+      console.log(filterColor);
+    } else {
+      console.log("BE SAD");
+    }
+    dispatch(filterColor(filterColor));
+  }
 
   render() {
+    const { colorData } = this.props;
+    console.log('-------------------------');
+    console.log(this.props);
+    console.log('SIDEBAR ______>', colorData);
 
     return (
       <nav className='sidebar Layout__sidebar'>
-        <div className='sidebar__button'>
+        <div className='btn sidebar__button'>
           <button>
             Random Color
           </button>
         </div>
-        <div className=''>
-          <NavLink
-            activeClassName='sidebar__nav-link'
+        <ul className=''>
+          <a
             className='sidebar__nav-link'
-            exact
-            to={ routeCodes.MultiView }
+            onClick={(e) => this.filterColor('red') }
           >
             Red
-          </NavLink>
-          <NavLink
-            activeClassName='sidebar__nav-link'
+          </a>
+          <a
             className='sidebar__nav-link'
-            exact
-            to={ routeCodes.MultiView }
+            onClick={() => this.filterColor("orange") }
           >
             Orange
-          </NavLink>
-          <NavLink
-            activeClassName='sidebar__nav-link'
+          </a>
+          <a
             className='sidebar__nav-link'
-            exact
-            to={ routeCodes.MultiView }
+            onClick={() => this.filterColor("yellow") }
           >
             Yellow
-          </NavLink>
-          <NavLink
-            activeClassName='sidebar__nav-link'
+          </a>
+          <a
             className='sidebar__nav-link'
-            exact
-            to={ routeCodes.MultiView }
+            onClick={() => this.filterColor("green") }
           >
             Green
-          </NavLink>
-          <NavLink
-            activeClassName='sidebar__nav-link'
+          </a>
+          <a
             className='sidebar__nav-link'
-            exact
-            to={ routeCodes.MultiView }
+            onClick={() => this.filterColor("blue") }
           >
             Blue
-          </NavLink>
-          <NavLink
-            activeClassName='sidebar__nav-link'
+          </a>
+          <a
             className='sidebar__nav-link'
-            exact
-            to={ routeCodes.MultiView }
+            onClick={() => this.filterColor("purple") }
           >
             Purple
-          </NavLink>
-          <NavLink
-            activeClassName='sidebar__nav-link'
+          </a>
+          <a
             className='sidebar__nav-link'
-            exact
-            to={ routeCodes.MultiView }
+            onClick={() => this.filterColor("brown") }
           >
             Brown
-          </NavLink>
-          <NavLink
-            activeClassName='sidebar__nav-link'
+          </a>
+          <a
             className='sidebar__nav-link'
-            exact
-            to={ routeCodes.MultiView }
+            onClick={() => this.filterColor("gray") }
           >
             Gray
-          </NavLink>
-        </div>
+          </a>
+        </ul>
       </nav>
     );
   }

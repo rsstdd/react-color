@@ -18,9 +18,11 @@
 @import "modules/_header";
 @import "modules/_sidebar";
 @import "modules/_button";
+@import "modules/_loader";
 
 // ----------------------------------------------------------------------
   // Views
 // ----------------------------------------------------------------------
 @import "views/_multiview.scss";
+@import "views/_singleview.scss";
 

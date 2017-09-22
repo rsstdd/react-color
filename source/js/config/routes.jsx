@@ -9,7 +9,7 @@ const publicPath = '/';
 
 export const routeCodes = {
   MultiView: publicPath,
-  SingleView: `${ publicPath }color`,
+  SingleView: `${ publicPath }color/:id`,
 };
 
 export default () => (

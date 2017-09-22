@@ -1,26 +1,25 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-const Tile = ({ color }) => {
-  const { hex } = color;
+const Tile = ({ color, onSelectColor, value, setClass }) => {
+  const { hex, id } = color;
+  const { tileDiv, tileName } = setClass;
   const divColor = {
     backgroundColor: `${hex}`
   };
 
-  if (!color) {
-    return <div>Loading....</div>
-  }
-
   return (
-    <div className="tile Layout__tile" style={ divColor }>
-      <div className="tile__name">
+    <Link 
+      to={`/color/${id}`}
+      style={ divColor }
+      className={ tileDiv }
+      onClick={() => onSelectColor(color) }
+      >
+      <div className={ tileName }>
         <h3>{ hex }</h3>
       </div>
-    </div>
+    </Link>
   );
 };
 
 export default Tile;
-
-
-
-// styles={{backgroundColor:`${hex}`}}

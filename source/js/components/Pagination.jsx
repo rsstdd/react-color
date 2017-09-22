@@ -14,7 +14,6 @@ const defaultProps = {
 
 // @connect(state => ({
 //   // pager: state.app.get('pager');
-//   colorData: state.app.get('colorData');
 // }))
 class Pagination extends React.Component {
   // static propTypes = {

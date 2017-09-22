@@ -31,7 +31,7 @@ function setCurrentColor(color) {
   };
 }
 
-function filterColor(color) {
+function setFilterOnColor(color) {
   return {
     type: FILTER_COLOR,
     data: color
@@ -66,7 +66,6 @@ const getColors = () => {
 
     api.getColors()
       .then(data => {
-        console.log(data);
         dispatch(fetchColorSuccess(data))
       })
       .catch(error => dispatch(fetchColorError(error)));
@@ -139,9 +138,9 @@ const getColorsByHue = () => {
 }
 
 export {
+  setFilterOnColor,
   getColors,
   getColorById,
   getColorsByHue,
   setCurrentColor,
-  filterColor,
 }

@@ -32,7 +32,7 @@ export default class SinlgeView extends Component {
 
   render() {
     const { currentColor, colorData } = this.props;
-    console.log(colorData);
+    console.log('SINGLE VIEW', colorData);
     const { color, hex, id } = currentColor ? currentColor : '';
     let divColor = {
       backgroundColor: `${hex}`

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { Link } from 'react-router-dom';
 import { reduxForm, Field, Form } from 'redux-form';
 import * as actions from './../../actions/colorAction.js';
 
@@ -21,9 +22,12 @@ class Menu extends Component {
 
     return (
       <nav className="navbar Layout__header">
-        <div className='navbar__logo'>
+        <Link 
+          to="/"
+          className='navbar__logo'
+          >
           <img src={ navLogo } alt="Logo"/>
-        </div>
+        </Link>
         <div className='navbar__search-bar'>
           <Form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
             <Field

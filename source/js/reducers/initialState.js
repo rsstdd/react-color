@@ -7,6 +7,7 @@ export default Map({
   pageOfItems: [],
   
   currentColor: null,
+  colorHues: null,
   
   colorData: null,
   colorDataLoading: false,

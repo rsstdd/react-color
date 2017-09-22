@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { filterColor } from '../../actions/colorAction';
+import { setFilterOnColor } from '../../actions/colorAction';
 
 @connect(state => ({
   colorData: state.app.get('colorData'),
@@ -19,7 +19,7 @@ export default class Sidebar extends Component {
     super()
     
     this.getRandomColor = this.getRandomColor.bind(this);
-    this.filterColor = this.filterColor.bind(this);
+    this.applyColorFilter = this.applyColorFilter.bind(this);
   }
 
   getRandomColor() {
@@ -27,25 +27,14 @@ export default class Sidebar extends Component {
     console.log('getRandomColor');
   }
 
-  filterColor(color) {
-    console.log(colorData);
+  applyColorFilter(color) {
     const { dispatch, colorData } = this.props;
-    console.log('filterColor', color);
-    if (colorData) {
-      const filterColor = colorData.filter(item => item.color === `${color}`);
-      console.log(filterColor);
-    } else {
-      console.log("BE SAD");
-    }
-    dispatch(filterColor(filterColor));
+    const filterColor = colorData.filter(item => item.color === `${color}`);
+    console.log(filterColor);
+    dispatch(setFilterOnColor(filterColor));
   }
 
   render() {
-    const { colorData } = this.props;
-    console.log('-------------------------');
-    console.log(this.props);
-    console.log('SIDEBAR ______>', colorData);
-
     return (
       <nav className='sidebar Layout__sidebar'>
         <div className='btn sidebar__button'>
@@ -56,49 +45,49 @@ export default class Sidebar extends Component {
         <ul className=''>
           <a
             className='sidebar__nav-link'
-            onClick={(e) => this.filterColor('red') }
+            onClick={(e) => this.applyColorFilter('red') }
           >
             Red
           </a>
           <a
             className='sidebar__nav-link'
-            onClick={() => this.filterColor("orange") }
+            onClick={() => this.applyColorFilter("orange") }
           >
             Orange
           </a>
           <a
             className='sidebar__nav-link'
-            onClick={() => this.filterColor("yellow") }
+            onClick={() => this.applyColorFilter("yellow") }
           >
             Yellow
           </a>
           <a
             className='sidebar__nav-link'
-            onClick={() => this.filterColor("green") }
+            onClick={() => this.applyColorFilter("green") }
           >
             Green
           </a>
           <a
             className='sidebar__nav-link'
-            onClick={() => this.filterColor("blue") }
+            onClick={() => this.applyColorFilter("blue") }
           >
             Blue
           </a>
           <a
             className='sidebar__nav-link'
-            onClick={() => this.filterColor("purple") }
+            onClick={() => this.applyColorFilter("purple") }
           >
             Purple
           </a>
           <a
             className='sidebar__nav-link'
-            onClick={() => this.filterColor("brown") }
+            onClick={() => this.applyColorFilter("brown") }
           >
             Brown
           </a>
           <a
             className='sidebar__nav-link'
-            onClick={() => this.filterColor("gray") }
+            onClick={() => this.applyColorFilter("gray") }
           >
             Gray
           </a>

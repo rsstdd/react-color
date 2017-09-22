@@ -18,11 +18,14 @@ import {
   FETCH_COLOR_HUE_SUCCESS,
     // SET COLOR
   SET_COLOR,
+  
+  // FILTER COLOR
+  FILTER_COLOR,
 } from '../constants/actionTypes';
 
 const actionsMap = {
   // --------------
-    // SYNC COLOR 
+    // SYNC COLOR
   // --------------
   [SET_COLOR]: (state, action) => {
     const currentColor = state.get('currentColor');
@@ -31,10 +34,10 @@ const actionsMap = {
     }));
   },
 
-  [SET_COLOR]: (state, action) => {
-    const colorData = state.get('currentColor');
+  [FILTER_COLOR]: (state, action) => {
+    const colorHues = state.get('colorHues');
     return state.merge(Map({
-      currentColor: action.data,
+      setFilterOnColor: action.data,
     }));
   },
 

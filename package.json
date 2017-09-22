@@ -43,7 +43,7 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^5.1.1",
     "eslint-plugin-react": "^7.1.0",
-    "extract-text-webpack-plugin": "^3.0.0",
+    "extract-text-webpack-plugin": "^2.1.2",
     "html-webpack-plugin": "^2.24.1",
     "node-sass": "^4.5.3",
     "postcss-loader": "^2.0.6",
@@ -60,6 +60,7 @@
     "webpack-dev-server": "^2.6.1"
   },
   "dependencies": {
+    "autoprefixer": "^7.1.4",
     "axios": "^0.16.2",
     "babel-polyfill": "^6.23.0",
     "es6-promise": "^4.1.1",
@@ -67,6 +68,7 @@
     "file-loader": "^0.11.2",
     "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",
+    "postcss-cli": "^4.1.1",
     "prop-types": "^15.5.10",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
@@ -74,7 +76,9 @@
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
     "redux": "^3.6.0",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "webpack": "^2.7.0",
+    "webpack-dev-server": "^2.8.2"
   },
   "description": "Full-Stack React App Example",
   "repository": {

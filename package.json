@@ -16,6 +16,7 @@
     "server:watch": "SERVER_RENDER=\"true\" webpack --config webpack.config.server.js",
     "server:restart": "nodemon ./build/server.js",
     "clean": "rm -rf ./build",
+    "heroku postbuild": "npm run client:build",
     "lint-hook": "eslint ./source/js ./webpack ./*.js -f table --ext .js --ext .jsx",
     "lint": "npm run lint-hook --silent || true",
     "hook-add": "prepush install",

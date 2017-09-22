@@ -5,7 +5,7 @@ import MultiView from 'views/MultiView';
 import SingleView from 'views/SingleView';
 import NotFound from 'views/NotFound';
 
-const publicPath = '/build';
+const publicPath = '/';
 
 export const routeCodes = {
   MultiView: publicPath,

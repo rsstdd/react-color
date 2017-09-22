@@ -17,7 +17,7 @@ const config = {
   ],
   output: {
     path: paths.build,
-    publicPath: 'https://react-color-web.appspot.com/',
+    publicPath: '/',
     filename: 'server.js',
   },
   module: {

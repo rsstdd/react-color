@@ -8,7 +8,7 @@
     "node": "v7.10.0"
   },
   "scripts": {
-    "start": "npm run clean && NODE_ENV=\"production\" webpack",
+    "start": "npm run NODE_ENV=\"production\" webpack",
     "client:dev": "webpack-dashboard -t 'ReactColor' -- webpack-dev-server",
     "client:watch": "webpack",
     "client:build": "npm run clean && NODE_ENV=\"production\" webpack",
@@ -21,9 +21,7 @@
     "lint": "npm run lint-hook --silent || true",
     "hook-add": "prepush install",
     "hook-remove": "prepush remove",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prod": "NODE_ENV=production node server.js",
-    "postinstall": "webpack -p"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
@@ -57,7 +55,7 @@
     "style-loader": "^0.18.2",
     "svgo": "^0.7.2",
     "svgo-loader": "^1.2.1",
-    "webpack": "^3.4.1",
+    "webpack": "^2.7.0",
     "webpack-dashboard": "^0.4.0",
     "webpack-dev-server": "^2.6.1"
   },
@@ -67,6 +65,7 @@
     "babel-polyfill": "^6.23.0",
     "es6-promise": "^4.1.1",
     "eslint": "^3.19.0",
+    "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.11.2",
     "immutable": "^3.8.1",
     "isomorphic-fetch": "^2.2.1",

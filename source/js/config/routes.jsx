@@ -5,7 +5,7 @@ import MultiView from 'views/MultiView';
 import SingleView from 'views/SingleView';
 import NotFound from 'views/NotFound';
 
-const publicPath = '/';
+const publicPath = 'https://react-color-web.herokuapp.com/';
 
 export const routeCodes = {
   MultiView: publicPath,

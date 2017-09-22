@@ -1,12 +1,11 @@
 # React Color App
 
-> https://react-color-web.appspot.com/
+## WEB:
+https://react-color-web.appspot.com/
 
 ## API:
-> https://react-color-api.herokuapp.com/
+https://react-color-api.herokuapp.com/
 
----
 
 ╰( ◕ ᗜ ◕ )╯
 
----

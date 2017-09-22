@@ -66,11 +66,6 @@ $min-tile-width: 20%;
     flex-flow: row wrap;
     justify-content: space-around;
     margin: 0 auto;
-  // New
-    :after {
-      content: '';
-      flex: 1;
-    }
   }
 
   &__tile {
@@ -78,17 +73,12 @@ $min-tile-width: 20%;
     flex: 1 0 auto;
     margin-bottom: 0;
     max-height: 300px;
-    max-width: 100%;
+    max-width: 200px;
     min-width: 200px;
     min-height: 300px;
-    width: 20%;  //     Chrome bug 
-    height: 25%; // No % on flex itms
-    // width: 275px;  //     Chrome bug 
-    // height: 325px; // No % on flex itms
+    width: 200px;  //     Chrome bug 
+    height: 300px; // No % on flex itms
   
-    :before {
-      content: ""
-    }
   }
   
   // --------------------------------
@@ -100,27 +90,16 @@ $min-tile-width: 20%;
     max-width: 80%;
     padding: 2em;
     
-    // Don't shrink
-    flex-shrink: 0;
-    
     // Flex for button
     display: flex;
     flex-direction: column;
     justify-content: center;
-  
-    :after{
-      content: '';
-      flex: 1;
-    }
   }
 
     // Big single Tile
   &__single-view-tile {
-    // flex: 1;
-    width: 75%;
-    height: 60%;
-    // width: 550px; // Why, Google?
-    // height: 550px;
+    width: 80%;
+    height: 50%;
     margin: 0 auto;
     margin-bottom: 10%;
     
@@ -145,27 +124,17 @@ $min-tile-width: 20%;
   &__single-view__tile-list {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: space-between;
     width: 100%;
     max-width: 100%;
     height: 25%;
-    
-    // TODO figure out flexbox chrome bug
-    // :after {
-    //   content: '';
-    //   flex: 1;
-    // }
   }
 
     // Small tiles 
   &__single-view-small-tile {
-  // TODO figure out flexbox chrome bug
-    // flex: 1;
-    // width: 20%;
-    // min-width: 15%;
-    width: 175px;  //   Chrome bug 
-    height: 225px; // No % on flex itms
+    width: 20%;
+    min-width: 15%;
   
     // Tile Grid
     display: flex;
@@ -174,7 +143,6 @@ $min-tile-width: 20%;
   }
   
   &__single-view-tile__name {
-    // flex: 1;
     margin: 0;
     width: 100%;
     height: 15%;
@@ -212,11 +180,4 @@ $min-tile-width: 20%;
       max-height: $max-title-height;
     }
   }
-}
-
-
-@include sm {
-  &__single-view__tile-list {
-    display: none;
-  }
-}
+};

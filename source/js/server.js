@@ -4,6 +4,7 @@ import express from 'express';
 import { Provider } from 'react-redux';
 import transit from 'transit-immutable-js';
 
+
 import 'babel-polyfill';
 
 import configureStore from 'config/store';
@@ -27,6 +28,7 @@ app.use((req, res) => {
 
   // Context is passed to the StaticRouter and it will attach data to it directly
   const context = {};
+
 
   const appHtml = ReactDOMServer.renderToString(
     <Provider store={ store }>

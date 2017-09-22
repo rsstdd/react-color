@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, browserHistory } from 'react-router-dom';
 
 import MultiView from 'views/MultiView';
 import SingleView from 'views/SingleView';

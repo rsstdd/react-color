@@ -5,13 +5,14 @@ import PropTypes from 'prop-types';
 import { setFilterOnColor } from '../../actions/colorAction';
 
 @connect(state => ({
-  colorData: state.app.get('colorData'),
+  filterColor: state.app.get('filterColor'),
   currentColor: state.app.get('currentColor'),
 }))
 export default class Sidebar extends Component {
   static propTypes = {
     colorData: PropTypes.array,
     currentColor: PropTypes.object,
+    filterColor: PropTypes.func,
     dispatch: PropTypes.func,
   }
 
@@ -24,21 +25,24 @@ export default class Sidebar extends Component {
 
   getRandomColor() {
     const { dispatch } = this.props;
-    console.log('getRandomColor');
+    const num = Math.floor(Math.random() * 103);
+    
   }
 
   applyColorFilter(color) {
-    const { dispatch, colorData } = this.props;
-    const filterColor = colorData.filter(item => item.color === `${color}`);
-    console.log(filterColor);
-    dispatch(setFilterOnColor(filterColor));
+    const { dispatch } = this.props;
+    // const filterColor = colorData.filter(item => item.color === `${color}`);
+    // console.log(filterColor);
+    dispatch(setFilterOnColor(color));
   }
 
   render() {
     return (
       <nav className='sidebar Layout__sidebar'>
         <div className='btn sidebar__button'>
-          <button>
+          <button
+            onClick={this.getRandomColor}
+            >
             Random Color
           </button>
         </div>

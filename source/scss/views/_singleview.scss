@@ -62,6 +62,14 @@ $white: #fff;
     }
   }
   
+  &__single-view-small-tile--disabled {
+    pointer-events: none;
+      
+    a[disabled] {
+      pointer-events: none;
+    }
+  }
+  
   &__button {
     align-self: center;
   }

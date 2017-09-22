@@ -92,6 +92,11 @@ $min-tile-width: 20%;
     width: 80%;
     max-width: 80%;
     padding: 2em;
+    
+    // Flex for button
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
     // Big single Tile
@@ -153,6 +158,11 @@ $min-tile-width: 20%;
     h3 {
       margin: 0 !important;
     }
+  }
+  
+  .single-view__button {
+    align-self: center;
+    margin: 2rem;
   }
   
 }

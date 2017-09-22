@@ -35,9 +35,10 @@ const actionsMap = {
   },
 
   [FILTER_COLOR]: (state, action) => {
-    const colorHues = state.get('colorHues');
+    const filterColor = state.get('filterColor');
+    console.log();
     return state.merge(Map({
-      setFilterOnColor: action.data,
+      filterColor: action.data,
     }));
   },
 

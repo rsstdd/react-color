@@ -9,13 +9,13 @@ import { getColors, setCurrentColor } from '../../actions/colorAction';
   colorDataError: state.app.get('colorDataError'),
   colorDataLoading: state.app.get('colorDataLoading'),
   currentColor: state.app.get('currentColor'),
-  // colorHues: state.app.get('colorHues'),
-  // pageOfItems: state.app.get('pageOfItems')
+  filterColor: state.app.get('filterColor'),
 }))
 export default class MultiView extends Component {
   static propTypes = {
     colorData: PropTypes.array,
     currentColor: PropTypes.object,
+    filterColor: PropTypes.func,
     dispatch: PropTypes.func,
   }
 
@@ -61,12 +61,16 @@ export default class MultiView extends Component {
   }
   
   handlePageChange(pageNumber) {
-    console.log(`active page is ${pageNumber}`);
     this.setState({activePage: pageNumber});
   }
 
   render() {
-    const { colorData, colorDataLoading, colorDataError, colorHues } = this.props;
+    const { 
+      colorData,
+      colorDataLoading,
+      colorDataError,
+      filterColor 
+    } = this.props;
     const { currentPage, tilesPerPage } = this.state;
     const MAGIC_NUMBER = 103;
     const styles = { 
@@ -82,15 +86,14 @@ export default class MultiView extends Component {
       pageNumbers.push(i);
     }
     
-    console.log('CURRNET TILES ', currentTiles);
-    console.log('FIRST_INDEX', indexOfFirstTile);
-    console.log('LAST_INDEX', indexOfLastTile);
-
+    console.log(filterColor);
 
     return (
       <div className='Layout__multi-content'>
         { colorData && currentTiles && 
-            currentTiles.map((color) => {
+            currentTiles
+            // .filter(item => item.color === filterColor || '')
+            .map((color) => {
               return (
                 <Tile
                   key={ color.hex }
@@ -111,19 +114,17 @@ export default class MultiView extends Component {
                 )
             }
           </div>
-            {/* <PageNumbers 
-              key={ number }
-              id={ number }
-              onClick={ this.handleClick }
-              value={ number }
-            /> */}
         </div>
         <div className="pagination">
           { colorData && 
               pageNumbers.map(number =>
                 <ul className="pagination__page-numbers">
                   <li
-                    className="pagination__page-numbers-number"
+                    className={
+                      this.state.currentPage === number ? 
+                      "pagination__page-numbers-number--active pagination__page-numbers-number--active" : 
+                      "pagination__page-numbers-number"
+                    }
                     key={ number }
                     id={ number }
                     onClick={ this.handleClick }

@@ -73,11 +73,11 @@ $min-tile-width: 20%;
     flex: 1 0 auto;
     margin-bottom: 0;
     max-height: 300px;
-    max-width: 200px;
+    max-width: 300px;
     min-width: 200px;
     min-height: 300px;
-    width: 200px;  //     Chrome bug 
-    height: 300px; // No % on flex itms
+    width: 300px;  //     Chrome bug 
+    height: 350px; // No % on flex itms
   
     :before {
       content: ""
@@ -101,8 +101,8 @@ $min-tile-width: 20%;
 
     // Big single Tile
   &__single-view-tile {
-    width: 80%;
-    height: 50%;
+    width: 750px; // abs
+    height: 675px;
     margin: 0 auto;
     margin-bottom: 10%;
     

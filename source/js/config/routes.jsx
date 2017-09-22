@@ -1,11 +1,11 @@
 import React from 'react';
-import { Route, Switch, browserHistory } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import MultiView from 'views/MultiView';
 import SingleView from 'views/SingleView';
 import NotFound from 'views/NotFound';
 
-const publicPath = '/';
+const publicPath = 'https://react-color-web.herokuapp.com/';
 
 export const routeCodes = {
   MultiView: publicPath,

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import * as actions from './../../actions/colorAction.js';
 
 
-//  Images
+//  Logo
 // ---------
 import navLogo from '../../../assets/img/logo-symbol.svg';
 
@@ -43,18 +43,13 @@ export default class Menu extends Component {
         </Link>
         <div className='navbar__search-bar'>
           <form onSubmit={this.handleSubmit}>
-            <fieldse>
-              <input 
-                name="colorSearch"
-                type="text"
-                placeholder="Search"
-                value={this.state.searchTerm}
-                >
-                
-              </input>
-            </fieldse>
-          
-            />
+            <input 
+              name="colorSearch"
+              type="text"
+              placeholder="Search"
+              value={this.state.searchTerm}
+              >
+            </input>
           </form>
         </div>
       </nav>

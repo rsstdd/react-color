@@ -16,12 +16,6 @@ const defaultProps = {
 //   // pager: state.app.get('pager');
 // }))
 class Pagination extends React.Component {
-  // static propTypes = {
-  //   colorData: PropTypes.array,
-  //   pager: PropTypes.object,
-  //   // from react-redux connect
-  //   dispatch: PropTypes.func,
-  // }
 
   constructor(props) {
     super(props);

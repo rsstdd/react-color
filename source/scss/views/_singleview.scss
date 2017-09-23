@@ -15,24 +15,21 @@ $white: #fff;
     // Styles
 // ---------------------------------
 .single-view {
-  // height: 100%;
-  // width: 100%;
-
+  
   // Big single Tile
   &__tile {
-    border: 0.0025rem solid $border-color;
-    box-shadow: 0 .35px .5px .5px rgba(51,51,51,.25);
     border-radius: .35rem;
+    box-shadow: 0 3px 6px rgba(51,51,51,0.16),
+                0 3px 6px rgba(51,51,51,0.23);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   }
-
+  
     // Big tile Name
   &__tile--name {
     padding: 1rem 1.5rem;
     background-color: $white;
-    border-top: 0.0025rem solid $border-color;
-    border: 0.0025rem solid $border-color;
-    box-shadow: 0 .35px .5px .5px rgba(51,51,51,.25);
-    border-radius: .35rem;
+    border-bottom-right-radius: .35rem;
+    border-bottom-left-radius: .35rem;
   }
   
     // Small tile container
@@ -42,9 +39,9 @@ $white: #fff;
   
     // Small tiles 
   &__single-view-tile {
-    border: 0.0025rem solid $border-color;
-    box-shadow: 0 .35px .5px .5px rgba(51,51,51,.25);
     border-radius: .35rem;
+    box-shadow: 0 1px 3px rgba(51,51,51,0.12), 
+                0 1px 2px rgba(51,51,51,0.24);
   }
   
     // Small tile Name
@@ -54,8 +51,8 @@ $white: #fff;
     background-color: $white;
     border-top: 0.0025rem solid $border-color;
     border: 0.0025rem solid $border-color;
-    box-shadow: 0 .35px .5px .5px rgba(51,51,51,.25);
-    border-radius: .35rem;
+    border-bottom-right-radius: .35rem;
+    border-bottom-left-radius: .35rem;
   
     h3 {
       margin: 0;
@@ -71,6 +68,10 @@ $white: #fff;
   }
   
   &__button {
-    align-self: center;
+    button {
+      align-self: center;
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
   }
 }

@@ -2,7 +2,6 @@ const webpack = require('webpack');
 const path = require('path');
 
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
-
 const autoprefixer = require('autoprefixer');
 
 const paths = {
@@ -41,20 +40,20 @@ if (IS_PRODUCTION) {
   // Shared production plugins
   plugins.push(
     new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        comparisons: true,
-        conditionals: true,
-        dead_code: true,
-        drop_console: !SERVER_RENDER, // Keep server logs
-        drop_debugger: true,
-        evaluate: true,
-        if_return: true,
-        join_vars: true,
-        screw_ie8: true,
-        sequences: true,
-        unused: true,
-        warnings: false,
-      },
+      // compress: {
+      //   comparisons: true,
+      //   conditionals: true,
+      //   dead_code: true,
+      //   drop_console: !SERVER_RENDER, // Keep server logs
+      //   drop_debugger: true,
+      //   evaluate: true,
+      //   if_return: true,
+      //   join_vars: true,
+      //   screw_ie8: true,
+      //   sequences: true,
+      //   unused: true,
+      //   warnings: false,
+      // },
       output: {
         comments: false,
       },

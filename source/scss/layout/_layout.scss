@@ -48,6 +48,8 @@ $min-tile-width: 20%;
     flex: 0 0 $sidebar-width;
     min-width: $sidebar-width;
     order: -1;
+    padding-left: 2%;
+    padding-top: 3%;
   }
 
   // --------------------------------
@@ -61,7 +63,7 @@ $min-tile-width: 20%;
     padding: 2em;
     overflow-x: scroll;
 
-    // Tile Grid
+    // Tile Grid (For Child Components)
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
@@ -73,14 +75,14 @@ $min-tile-width: 20%;
     flex: 1 0 auto;
     margin-bottom: 0;
     max-height: 300px;
-    max-width: 200px;
+    max-width: 50%;
     min-width: 200px;
-    min-height: 300px;
-    width: 200px;  //     Chrome bug 
-    height: 300px; // No % on flex itms
+    min-height: 250px;
+    width: 20%;    //        Chrome bug 
+    height: 175px; // No % on flex itms TODO Fix for flex
   
   }
-  
+    
   // --------------------------------
     // Flex Grid > SingleView/Detail
   // ---------------------------------
@@ -96,10 +98,13 @@ $min-tile-width: 20%;
     justify-content: center;
   }
 
-    // Big single Tile
+    // Big/single Tile
   &__single-view-tile {
-    width: 80%;
-    height: 50%;
+    display: absolute;
+    // width: 80%;
+    // height: 50%;
+    width: 750px; // abs
+    height: 675px;
     margin: 0 auto;
     margin-bottom: 10%;
     
@@ -159,9 +164,8 @@ $min-tile-width: 20%;
   
   .single-view__button {
     align-self: center;
-    margin: 2rem;
+    margin: 3rem;
   }
-  
 }
 
 // -------------------------------------

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import Tile from '../../components/MultiTile';
+import Loading from '../../components/Loading';
 import { getColors, setCurrentColor } from '../../actions/colorAction';
 
 @connect(state => ({
@@ -85,11 +86,10 @@ export default class MultiView extends Component {
     for (let i = 1; i <= Math.ceil(103 / this.state.tilesPerPage); i++) {
       pageNumbers.push(i);
     }
-    
-    console.log(filterColor);
 
     return (
       <div className='Layout__multi-content'>
+        { colorDataLoading && <Loading /> }
         { colorData && currentTiles && 
             currentTiles
             // .filter(item => item.color === filterColor || '')
@@ -104,7 +104,6 @@ export default class MultiView extends Component {
               );
           })
         }
-        { colorDataLoading && <div className="loader">Loading...</div> }
         { colorDataError && <h1>Error: { colorDataError }</h1> }
         <div className="container">
           <div className="text-center">

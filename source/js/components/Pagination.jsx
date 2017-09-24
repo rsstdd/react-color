@@ -12,9 +12,9 @@ const defaultProps = {
   initialPage: 1
 }
 
-// @connect(state => ({
-//   // pager: state.app.get('pager');
-// }))
+@connect(state => ({
+  // pager: state.app.get('pager');
+}))
 class Pagination extends React.Component {
 
   constructor(props) {

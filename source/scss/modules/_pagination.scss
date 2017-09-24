@@ -33,7 +33,6 @@ $black: #333;
   &__page-numbers-number--active {
     border-bottom: 2px solid $black;
     margin: 1rem;
-    font-size: 2rem;
     padding: .5rem;
     margin-right: 0.3em;
     cursor: pointer;
@@ -46,5 +45,15 @@ $black: #333;
 }
 
 @include sm {
-  
+  .pagination {
+    &__page-numbers-number {
+      margin: .5rem;
+      font-size: 1rem;
+    }
+    
+    &_page-numbers-number--active {
+      font-size: 1rem;
+      margin-right: 0;
+    }
+  }  
 }

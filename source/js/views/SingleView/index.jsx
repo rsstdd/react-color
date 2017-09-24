@@ -41,14 +41,16 @@ export default class SinlgeView extends Component {
   }
 
   render() {
-    console.log(this.props);
+    console.log(this.props.colorData);
+    console.log(this.props.currentColor);
     const { currentColor, colorData } = this.props;
     const { color, hex, id } = currentColor ? currentColor : '';
     let divColor = {
       backgroundColor: `${hex}`
     };
     const styles = { 
-      tileDiv: "single-view__single-view-tile Layout__single-view-small-tile single-view__single-view-small-tile--disabled", 
+      tileDiv: "single-view__single-view-tile Layout__single-view-small-tile", 
+      // tileDiv: "single-view__single-view-tile Layout__single-view-small-tile single-view__single-view-small-tile--disabled", 
       tileName: "single-view__single-view-tile__name Layout__single-view__single-view-tile__name"
     }
 
@@ -78,7 +80,7 @@ export default class SinlgeView extends Component {
           </div>
           <Link 
             to="/"
-            className='btn single-view__button'
+            className='btn single-view__button Layout__single-view__button'
             >
              <button>
               reset

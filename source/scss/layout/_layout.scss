@@ -63,7 +63,7 @@ $min-tile-width: 20%;
     padding: 2em;
     overflow-x: scroll;
 
-    // Tile Grid (For Child Components)
+      // Tile Grid (For Child Components)
     display: flex;
     flex-flow: row wrap;
     justify-content: space-around;
@@ -78,8 +78,8 @@ $min-tile-width: 20%;
     max-width: 50%;
     min-width: 200px;
     min-height: 250px;
-    width: 20%;    //        Chrome bug 
-    height: 175px; // No % on flex itms TODO Fix for flex
+    width: 20%;    //        Chrome bug: 
+    height: 175px; // No % on flex itms // TODO Fix for flex
   
   }
     
@@ -101,9 +101,9 @@ $min-tile-width: 20%;
     // Big/single Tile
   &__single-view-tile {
     display: absolute;
-    // width: 80%;
+    // width: 80%; // TODO Fix chrome bug to use % w/ flexbox
     // height: 50%;
-    width: 750px; // abs
+    width: 750px;
     height: 675px;
     margin: 0 auto;
     margin-bottom: 10%;
@@ -173,15 +173,44 @@ $min-tile-width: 20%;
 // -------------------------------------
 @include sm {
   .Layout {
-    
+
     &__content {
       flex-flow: column wrap;
       width: $full-width;
     }
-    
+
     &__tile {
       width: $full-width;
       max-height: $max-title-height;
+      margin-left: .5rem;
+      margin-right: .5rem;
+    }
+
+    &__single-content {
+      width: 100%;
+      padding-left: 2.75rem;
+      justify-content: center;
+    }
+
+    &__single-view {
+      align-self: center;
+      justify-content: center;
+      margin-right: 1rem;
+      width: 100%;
+      height: 100vh;
+      
+      &-tile {
+        width: 80vw;
+        height: 50vh;
+      }
+    }
+
+    &__single-view__button {
+      margin-left: 6em !important
+    }
+
+    &__single-view__tile-list {
+      display: none;
     }
   }
 };

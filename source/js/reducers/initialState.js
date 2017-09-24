@@ -12,12 +12,8 @@ export default Map({
   colorData: null,
   colorDataLoading: false,
   colorDataError: null,
-
-  colorIdData: null,
-  colorDataIdLoading: false,
-  colorDataIdError: null,
-
-  colorHueData: null,
-  colorDataHueLoading: false,
-  colorDataHueError: null,
+  
+  currentPage: 1,
+  tilesPerPage: 10,
+  
 });

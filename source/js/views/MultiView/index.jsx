@@ -28,14 +28,7 @@ export default class MultiView extends Component {
     }
     
     this.onSelectColor = this.onSelectColor.bind(this);
-    this.handleClick = this.handleClick.bind(this);
-   }
-
-   handleClick(event) {
-     this.setState({
-       currentPage: Number(event.target.id),
-       tilesPerPage: 10,
-     });
+    this.handleChangePage = this.handleChangePage.bind(this);
    }
 
   componentDidMount() {
@@ -51,34 +44,37 @@ export default class MultiView extends Component {
     }
   }
   
+  handleChangePage(event) {
+    this.setState({
+      currentPage: Number(event.target.id),
+      // tilesPerPage: 10,
+    });
+  }
+  
   onSelectColor(color) {
     const { dispatch } = this.props;
     dispatch(setCurrentColor(color));
   }
 
-  onChangePage = (pageOfItems) => {
-    // update state with new page of items
-    this.setState({ pageOfItems: pageOfItems });
-  }
-  
   handlePageChange(pageNumber) {
     this.setState({activePage: pageNumber});
   }
 
   render() {
+    console.log(this.state);
     const { 
       colorData,
       colorDataLoading,
       colorDataError,
       filterColor 
     } = this.props;
-    const { currentPage, tilesPerPage } = this.state;
-    const MAGIC_NUMBER = 103;
-    const styles = { 
+    const tileStyles = { 
       tileDiv: "tile Layout__tile", 
       tileName: "tile__name"
     };
     // Pagination
+    const { currentPage, tilesPerPage } = this.state;
+    const pageLength = this.props.colorData ? this.props.colorData : 0;
     let indexOfLastTile = currentPage * tilesPerPage;
     let indexOfFirstTile = indexOfLastTile - tilesPerPage;
     let currentTiles = colorData ? colorData.slice(indexOfFirstTile, indexOfLastTile) : '';
@@ -90,30 +86,21 @@ export default class MultiView extends Component {
     return (
       <div className='Layout__multi-content'>
         { colorDataLoading && <Loading /> }
+        { colorDataError && <h1>Error: { colorDataError }</h1> }
         { colorData && currentTiles && 
             currentTiles
-            // .filter(item => item.color === filterColor || '')
-            .map((color) => {
-              return (
-                <Tile
-                  key={ color.hex }
-                  color={ color }
-                  onSelectColor={ this.onSelectColor }
-                  setClass={styles}
-                />
-              );
+              // .filter(item => item.color === filterColor ||  null === filterColor)
+              .map((color) => {
+                return (
+                  <Tile
+                    key={ color.hex }
+                    color={ color }
+                    onSelectColor={ this.onSelectColor }
+                    setClass={ tileStyles }
+                  />
+                );
           })
         }
-        { colorDataError && <h1>Error: { colorDataError }</h1> }
-        <div className="container">
-          <div className="text-center">
-            { colorData &&
-                colorData.map((item) =>
-                  <div key={ item.id }>{ item.name }</div>
-                )
-            }
-          </div>
-        </div>
         <div className="pagination">
           { colorData && 
               pageNumbers.map(number =>
@@ -121,12 +108,13 @@ export default class MultiView extends Component {
                   <li
                     className={
                       this.state.currentPage === number ? 
-                      "pagination__page-numbers-number--active pagination__page-numbers-number--active" : 
-                      "pagination__page-numbers-number"
+                      `pagination__page-numbers-number--active 
+                      pagination__page-numbers-number--active` : 
+                      `pagination__page-numbers-number`
                     }
                     key={ number }
                     id={ number }
-                    onClick={ this.handleClick }
+                    onClick={ this.handleChangePage }
                   >
                     { number }
                   </li>

@@ -26,17 +26,11 @@ export default class Menu extends Component {
       searchTerm: ''
     }
     
-    // this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
-  // handleSubmit = ({ colorSearch }) => {
-  //   console.log('HANDLE FORM SUBMIT: ==> ', colorSearch);
-  // }
-  
   handleChange = (e) => {
     e.preventDefault;
-    console.log('Ive been clocked');
   };
 
   render() {

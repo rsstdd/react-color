@@ -48,9 +48,6 @@ export default class SinlgeView extends Component {
   }
 
   render() {
-    console.log('SINGLE ==>',this.props);
-    console.log('SINGLE ================');
-
     const { currentColor, colorData } = this.props;
     const { color, hex, id } = currentColor ? currentColor : '';
     let divColor = {

@@ -7,9 +7,7 @@ export default Map({
   currentColor: null,
   
     // Filters
-  filterColor: 'all',
-  // uniqueItems: null,
-  filterColorOptions: ['all'],
+  filteredColors: null,
   
     // Colors
   colorData: null,

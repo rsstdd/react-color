@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 import { setFilterOnColor, setCurrentColor } from '../../actions/colorAction';
 
@@ -9,23 +9,22 @@ import { setFilterOnColor, setCurrentColor } from '../../actions/colorAction';
 @connect(state => ({
   colorData: state.app.get('colorData'),
   currentColor: state.app.get('currentColor'),
-  filterColor: state.app.get('filterColor'),
+  filteredColors: state.app.get('filteredColors'),
 }))
 export default class Sidebar extends Component {
   static propTypes = {
     colorData: PropTypes.array,
     currentColor: PropTypes.object,
-    uniqueItems: PropTypes.array,
-    filterColorOptions: PropTypes.array,
-    filterColor: PropTypes.func,
+    filteredColors: PropTypes.array,
     dispatch: PropTypes.func,
   }
 
   constructor() {
-    super();
+    super()
 
     this.state = {
-      menuItems: ['All', 'Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Pruple', 'Brown', 'Gray']
+      menuItems: ['All', 'Red', 'Orange', 'Yellow', 'Green', 'Blue', 'Purple', 'Brown', 'Gray'],
+      colorArr: [],
     }
 
     this.getRandomColor = this.getRandomColor.bind(this);
@@ -36,31 +35,30 @@ export default class Sidebar extends Component {
     const { colorData, dispatch } = this.props;
     const num = Math.floor(Math.random() * colorData.length);
     const color = colorData[num];
-
     dispatch(setCurrentColor(color));
   }
 
-  applyColorFilter(color) {
+  applyColorFilter(capColor) {
     const { dispatch, colorData, filterColorOptions } = this.props;
-    const uniqueColors = (x, i, a) => a.indexOf(x) === i;
-    console.log(uniqueColors);
-    const options = filterColorOptions.concat(colorData.map(item => item.color).filter(uniqueColors));
-    console.log(options);
-    dispatch(setFilterOnColor(color.toLowerCase()));
-    // dispatch(setFilterOptions(options))
+    let color = capColor.toLowerCase();
+    
+    if (color === 'all') {
+      colorArr.push(color)
+    } else {
+      let colorArr = colorData ? colorData.filter(item => item.color === color) : [];
+      dispatch(setFilterOnColor(colorArr));
+    }
   }
 
   render() {
     const { menuItems } = this.state;
-
-    console.log('SIDEBAR', this.props);
-    console.log('SIDEBAR', this.props.currentColor);
-    console.log('--------------------');
+    const { currentColor } = this.props;
+    let id = currentColor ? currentColor.id : 50;
 
     return (
       <nav className='sidebar Layout__sidebar'>
         <Link 
-          to="`/color/${id}`"
+          to={`/color/${id}`}
           className='btn sidebar__button'>
           <button
             onClick={ this.getRandomColor }
@@ -73,13 +71,13 @@ export default class Sidebar extends Component {
           menuItems.map(item => {
             return (
               <Link
-              to="/"
-              key={ item }
-              className='sidebar__nav-link'
-              onClick={ (e) => this.applyColorFilter(item) }
-            >
-              { item }
-            </Link>
+                to="/"
+                key={ item }
+                className='sidebar__nav-link'
+                onClick={ () => this.applyColorFilter(item) }
+              >
+                { item }
+              </Link>
             )
           })
         } 

@@ -22,20 +22,27 @@ function setCurrentColor(color) {
   };
 }
 
-function setFilterOnColor(color) {
+function setFilterOnColor(colorArr) {
   return {
     type: FILTER_COLOR,
-    data: color
+    data: colorArr
   };
 }
 
-function setFilterOptions(options) {
+// const filteredList = (filter = '', list = []) => {
+//   if (filter) {
+//     return list.filter((el) => {
+//       return Object.keys(el).some((prop) => {
+//         return el[prop] &&
+//           typeof el[prop] === 'string' &&
+//           el[prop].toLowerCase().indexOf(filter.toLowerCase()) >= 0;
+//       });
+//     });
+//   }
+// 
+//   return list;
+// };
 
-  return {
-    type: SET_FILTER_OPTIONS,
-    data: options
-  }
-}
 
   // Async COLORS
 function fetchColorStart() {

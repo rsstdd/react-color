@@ -23,25 +23,15 @@ const actionsMap = {
   // ---------------------
   [SET_COLOR]: (state, action) => {
     const currentColor = state.get('currentColor');
-    
     return state.merge(Map({
       currentColor: action.data,
     }));
   },
 
-  [SET_FILTER_OPTIONS]: (state, action) => {
-    const filterColorOptions = state.get('filterColorOptions');
-
-    return state.merge(Map({
-      filterColorOptions: action.data,
-    }));
-  },
-
   [FILTER_COLOR]: (state, action) => {
-    const colorData = state.get('colorData');
-
+    const filterColors = state.get('filterColors');    
     return state.merge(Map({
-      filterColor: action.data,
+      filteredColors: action.data,
     }));
   },
 

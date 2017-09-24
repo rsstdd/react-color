@@ -10,7 +10,7 @@ import { getColors, setCurrentColor } from '../../actions/colorAction';
   colorDataError: state.app.get('colorDataError'),
   colorDataLoading: state.app.get('colorDataLoading'),
   currentColor: state.app.get('currentColor'),
-  filterColor: state.app.get('filterColor'),
+  filteredColors: state.app.get('filteredColors'),
   uniqueItems: state.app.get('filterColor'),
   filterColorOptions: state.app.get('filterColorOptions'),
 }))
@@ -18,7 +18,7 @@ export default class MultiView extends Component {
   static propTypes = {
     colorData: PropTypes.array,
     currentColor: PropTypes.object,
-    filterColor: PropTypes.func,
+    filteredColors: PropTypes.array,
     dispatch: PropTypes.func,
   }
 
@@ -39,17 +39,10 @@ export default class MultiView extends Component {
       dispatch(getColors());
     }
   }
-  
-  componentWillReceiveProps(nextProps) {
-    if (this.props.colorData != nextProps.colorData) {
-      this.setState({colorData: Object.assign({}, nextProps.colorData)});
-    }
-  }
-  
+
   handleChangePage(event) {
     this.setState({
       currentPage: Number(event.target.id),
-      // tilesPerPage: 10,
     });
   }
   
@@ -63,14 +56,11 @@ export default class MultiView extends Component {
   }
 
   render() {
-    console.log('MULTI ==> ', this.props);
-    console.log('====================');
     const { 
       colorData,
       colorDataLoading,
       colorDataError,
-      filterColor,
-      filterColorOptions,
+      filteredColors,
     } = this.props;
     const tileStyles = { 
       tileDiv: "tile Layout__tile", 
@@ -81,10 +71,17 @@ export default class MultiView extends Component {
     const pageLength = this.props.colorData ? this.props.colorData : 0;
     let indexOfLastTile = currentPage * tilesPerPage;
     let indexOfFirstTile = indexOfLastTile - tilesPerPage;
-    let currentTiles = colorData ? colorData.slice(indexOfFirstTile, indexOfLastTile) : '';
     let pageNumbers = [];
+    let currentTiles;
+    
     for (let i = 1; i <= Math.ceil(103 / this.state.tilesPerPage); i++) {
       pageNumbers.push(i);
+    }
+
+    if (filteredColors) {
+      currentTiles = filteredColors;
+    } else {
+      currentTiles = colorData ? colorData.slice(indexOfFirstTile, indexOfLastTile) : '';
     }
 
     return (
@@ -93,12 +90,6 @@ export default class MultiView extends Component {
         { colorDataError && <h1>Error: { colorDataError }</h1> }
         { colorData && currentTiles && 
             currentTiles
-              // .filter(({ color })=> {
-              //   console.log('FILTER', color);
-              //   console.log('FILTER: FilterColor', filterColor);
-              //   console.log(filterColor === color || filterColor === 'all');
-              //   filterColor === color || filterColor === 'all'
-              // })
               .map((color) => {
                 return (
                   <Tile
@@ -111,7 +102,7 @@ export default class MultiView extends Component {
           })
         }
         <div className="pagination">
-          { colorData && 
+          { colorData && !filteredColors &&
               pageNumbers.map(number =>
                 <ul className="pagination__page-numbers">
                   <li

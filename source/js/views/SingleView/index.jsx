@@ -19,6 +19,8 @@ export default class SinlgeView extends Component {
 
   constructor(props) {
     super(props);
+    
+    this.onSelectColor = this.onSelectColor.bind(this);
   }
 
   componentDidMount() {
@@ -50,7 +52,6 @@ export default class SinlgeView extends Component {
     };
     const styles = { 
       tileDiv: "single-view__single-view-tile Layout__single-view-small-tile", 
-      // tileDiv: "single-view__single-view-tile Layout__single-view-small-tile single-view__single-view-small-tile--disabled", 
       tileName: "single-view__single-view-tile__name Layout__single-view__single-view-tile__name"
     }
 

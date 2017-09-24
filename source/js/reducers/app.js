@@ -29,7 +29,7 @@ const actionsMap = {
 
   [FILTER_COLOR]: (state, action) => {
     const filterColor = state.get('filterColor');
-    console.log();
+    console.log('REDUCER ==> ', filterColor);
     return state.merge(Map({
       filterColor: action.data,
     }));

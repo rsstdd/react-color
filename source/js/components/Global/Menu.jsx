@@ -18,18 +18,17 @@ export default class Menu extends Component {
       searchTerm: ''
     }
     
-    this.handleSubmit = this.handleSubmit.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleSubmit = ({ colorSearch }) => {
-    console.log('HANDLE FORM SUBMIT: ==> ', colorSearch);
-  }
+  // handleSubmit = ({ colorSearch }) => {
+  //   console.log('HANDLE FORM SUBMIT: ==> ', colorSearch);
+  // }
   
   handleChange = (e) => {
-    let newState = {};
-    newState[e.target.name] = e.target.value;
-    this.setState(newState);
+    e.preventDefault;
+    console.log('Ive been clocked');
   };
 
   render() {
@@ -42,7 +41,7 @@ export default class Menu extends Component {
           <img src={ navLogo } alt="Logo"/>
         </Link>
         <div className='navbar__search-bar'>
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleChange}>
             <input 
               name="colorSearch"
               type="text"

@@ -24,3 +24,5 @@ export const SET_COLOR = 'SET_COLOR';
 
 // Set Filter Color actions
 export const FILTER_COLOR = 'FILTER_COLOR';
+export const SET_UNIQUE = 'FILTER_COLOR';
+export const SET_FILTER_OPTIONS = 'SET_FILTER_OPTIONS';

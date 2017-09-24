@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { Link } from 'react-router-dom';
 // import { reduxForm, Field, Form } from 'redux-form';
-import * as actions from './../../actions/colorAction.js';
+import PropTypes from 'prop-types';
+// import * as actions from './../../actions/colorAction.js';
 
 
 //  Logo
 // ---------
 import navLogo from '../../../assets/img/logo-symbol.svg';
 
+@connect(state => ({
+
+}))
 export default class Menu extends Component {
+  static propTypes = {
+
+    dispatch: PropTypes.func,
+  }
+
   constructor() {
     super();
     
@@ -32,6 +40,7 @@ export default class Menu extends Component {
   };
 
   render() {
+
     return (
       <nav className="navbar Layout__header">
         <Link 

@@ -11,6 +11,8 @@ import { getColors, setCurrentColor } from '../../actions/colorAction';
   colorDataLoading: state.app.get('colorDataLoading'),
   currentColor: state.app.get('currentColor'),
   filterColor: state.app.get('filterColor'),
+  uniqueItems: state.app.get('filterColor'),
+  filterColorOptions: state.app.get('filterColorOptions'),
 }))
 export default class MultiView extends Component {
   static propTypes = {
@@ -61,12 +63,14 @@ export default class MultiView extends Component {
   }
 
   render() {
-    console.log(this.state);
+    console.log('MULTI ==> ', this.props);
+    console.log('====================');
     const { 
       colorData,
       colorDataLoading,
       colorDataError,
-      filterColor 
+      filterColor,
+      filterColorOptions,
     } = this.props;
     const tileStyles = { 
       tileDiv: "tile Layout__tile", 
@@ -89,7 +93,12 @@ export default class MultiView extends Component {
         { colorDataError && <h1>Error: { colorDataError }</h1> }
         { colorData && currentTiles && 
             currentTiles
-              // .filter(item => item.color === filterColor ||  null === filterColor)
+              // .filter(({ color })=> {
+              //   console.log('FILTER', color);
+              //   console.log('FILTER: FilterColor', filterColor);
+              //   console.log(filterColor === color || filterColor === 'all');
+              //   filterColor === color || filterColor === 'all'
+              // })
               .map((color) => {
                 return (
                   <Tile

@@ -14,22 +14,32 @@ import {
   
   // FILTER COLOR
   FILTER_COLOR,
+  SET_FILTER_OPTIONS
 } from '../constants/actionTypes';
 
 const actionsMap = {
-  // --------------
-    // SYNC COLOR
-  // --------------
+  // ---------------------
+    // SYNC COLOR ACTIONS
+  // ---------------------
   [SET_COLOR]: (state, action) => {
     const currentColor = state.get('currentColor');
+    
     return state.merge(Map({
       currentColor: action.data,
     }));
   },
 
+  [SET_FILTER_OPTIONS]: (state, action) => {
+    const filterColorOptions = state.get('filterColorOptions');
+
+    return state.merge(Map({
+      filterColorOptions: action.data,
+    }));
+  },
+
   [FILTER_COLOR]: (state, action) => {
-    const filterColor = state.get('filterColor');
-    console.log('REDUCER ==> ', filterColor);
+    const colorData = state.get('colorData');
+
     return state.merge(Map({
       filterColor: action.data,
     }));

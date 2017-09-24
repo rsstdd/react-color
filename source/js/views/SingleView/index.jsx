@@ -8,7 +8,12 @@ import { setCurrentColor, getColorById } from '../../actions/colorAction';
 
 @connect(state => ({
   colorData: state.app.get('colorData'),
+  colorDataError: state.app.get('colorDataError'),
+  colorDataLoading: state.app.get('colorDataLoading'),
   currentColor: state.app.get('currentColor'),
+  filterColor: state.app.get('filterColor'),
+  uniqueItems: state.app.get('filterColor'),
+  filterColorOptions: state.app.get('filterColorOptions'),
 }))
 export default class SinlgeView extends Component {
   static propTypes = {
@@ -43,8 +48,9 @@ export default class SinlgeView extends Component {
   }
 
   render() {
-    console.log(this.props.colorData);
-    console.log(this.props.currentColor);
+    console.log('SINGLE ==>',this.props);
+    console.log('SINGLE ================');
+
     const { currentColor, colorData } = this.props;
     const { color, hex, id } = currentColor ? currentColor : '';
     let divColor = {

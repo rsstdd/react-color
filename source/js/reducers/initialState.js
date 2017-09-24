@@ -3,17 +3,20 @@
 import { Map } from 'immutable';
 
 export default Map({
-  pager: {},
-  pageOfItems: [],
-  
+    // Current Colors
   currentColor: null,
-  filterColor: null,
   
+    // Filters
+  filterColor: 'all',
+  // uniqueItems: null,
+  filterColorOptions: ['all'],
+  
+    // Colors
   colorData: null,
   colorDataLoading: false,
   colorDataError: null,
   
+    // Pagination
   currentPage: 1,
   tilesPerPage: 10,
-  
 });

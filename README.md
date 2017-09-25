@@ -4,8 +4,8 @@
 https://react-color-web.appspot.com/
 
 ## API:
-https://react-color-api.herokuapp.com/
+[GitHub](https://github.com/rsstdd/react-color-api)
 
+https://react-color-api.herokuapp.com/colors
 
-╰( ◕ ᗜ ◕ )╯
 

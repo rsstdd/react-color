@@ -2,18 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-
+import Loading from '../../components/Loading';
 import Tile from '../../components/MultiTile';
 import { setCurrentColor, getColorById } from '../../actions/colorAction';
 
 @connect(state => ({
+    // Colors
   colorData: state.app.get('colorData'),
-  colorDataError: state.app.get('colorDataError'),
-  colorDataLoading: state.app.get('colorDataLoading'),
+
+    // Filters
   currentColor: state.app.get('currentColor'),
-  filterColor: state.app.get('filterColor'),
-  uniqueItems: state.app.get('filterColor'),
-  filterColorOptions: state.app.get('filterColorOptions'),
 }))
 export default class SinlgeView extends Component {
   static propTypes = {
@@ -26,20 +24,6 @@ export default class SinlgeView extends Component {
     super(props);
     
     this.onSelectColor = this.onSelectColor.bind(this);
-  }
-
-  componentDidMount() {
-    const { dispatch } = this.props;
-    const { id } = this.props.match.params;
-    if (!this.props.currentColor) {
-      // dispatch(getColorById(id));
-    }
-  }
-  
-  componentWillReceiveProps(nextProps) {
-    if (this.props.currentColor != nextProps.currentColor) {
-      this.setState({currentColor: Object.assign({}, nextProps.currentColor)});
-    }
   }
 
   onSelectColor(color) {
@@ -57,7 +41,6 @@ export default class SinlgeView extends Component {
       tileDiv: "single-view__single-view-tile Layout__single-view-small-tile", 
       tileName: "single-view__single-view-tile__name Layout__single-view__single-view-tile__name"
     }
-
 
     return (
       <div className=" Layout__single-content single-view" >

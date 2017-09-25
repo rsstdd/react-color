@@ -40,3 +40,11 @@ $white: #FFF;
 @include min-lg {
     padding: 1rem 1.15rem;
 };
+
+@include min-md {
+  font-size: 16px;
+};
+
+@include min-lg {
+    font-size: 18px;
+};

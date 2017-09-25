@@ -39,16 +39,14 @@ function updateSearchTerm(searchString) {
 }
 
 function filterBySearch(searchTerm, colorData) {
-  const searchFilter = colorData.filter((color) => {
-    for (const key in color) {
-      const valString = color.color.toString().toLowerCase();
-
-      if (valString.indexOf(searchTerm.toLowerCase()) !== -1) {
-
-        return true;
-      }
+  const searchFilter = colorData.filter((el) => {
+    const valString = el.color;
+    console.log(valString);
+    console.log(searchTerm);
+    console.log(valString.indexOf(searchTerm) === 0);
+    if (valString.indexOf(searchTerm.toLowerCase()) === 0) {
+      return true;
     }
-
       return false;
     });
 

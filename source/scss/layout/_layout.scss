@@ -104,10 +104,10 @@ $min-tile-width: 20%;
     // width: 80%; // TODO Fix chrome bug to use % w/ flexbox
     // height: 50%;
     width: 750px;
-    height: 675px;
+    height: 700px;
     margin: 0 auto;
     margin-bottom: 10%;
-    
+
     // Tile Grid
     display: flex;
     flex-direction: column;
@@ -129,18 +129,20 @@ $min-tile-width: 20%;
   &__single-view__tile-list {
     display: flex;
     flex-direction: row;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: space-between;
+    
     width: 100%;
     max-width: 100%;
-    height: 25%;
+    height: 25%; 
   }
 
     // Small tiles 
   &__single-view-small-tile {
     width: 20%;
-    min-width: 15%;
-  
+    min-width: 20%;
+    flex-grow: 0;
+
     // Tile Grid
     display: flex;
     flex-direction: column;
@@ -152,16 +154,11 @@ $min-tile-width: 20%;
     width: 100%;
     height: 15%;
 
-    // Tile 
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-
     h3 {
       margin: 0 !important;
     }
   }
-  
+
   .single-view__button {
     align-self: center;
     margin: 3rem;
@@ -170,6 +167,55 @@ $min-tile-width: 20%;
 
 // -------------------------------------
   // Project Structure (Mobile Devices)
+// -------------------------------------
+
+
+// -------------------------------------
+  // LG
+// -------------------------------------
+@include lg {
+  .Layout {
+      // Single View Container
+    &__single-content {
+      width: 100%;
+      height: auto;
+    }
+
+      // Large Tile
+    &__single-view-tile {
+      width: 70%;
+      height: 575px;
+    }
+
+      // Small Tile Container
+    &__single-view-tile-list {
+      height: 175px;
+    }
+
+      // Small Tiles
+    &__single-view-small-tile {
+      width: 20%; 
+      height: 175px;
+    }
+  }
+};
+
+
+// -------------------------------------
+  // MD
+// -------------------------------------
+@include lg {
+  .Layout { 
+    &__single-content {
+      max-width: 100%;
+      align-self: center;
+    }
+  }
+};
+
+
+// -------------------------------------
+  // SM
 // -------------------------------------
 @include sm {
   .Layout {
@@ -188,7 +234,6 @@ $min-tile-width: 20%;
 
     &__single-content {
       width: 100%;
-      padding-left: 2.75rem;
       justify-content: center;
     }
 
@@ -197,16 +242,17 @@ $min-tile-width: 20%;
       justify-content: center;
       margin-right: 1rem;
       width: 100%;
-      height: 100vh;
-      
-      &-tile {
-        width: 80vw;
-        height: 50vh;
-      }
+      height: 100%;
+    }
+
+    // Large, Sinlge View Tile
+    &__single-view-tile {
+      width: 95%;
+      height: 300px;
     }
 
     &__single-view__button {
-      margin-left: 6em !important
+      margin: 0;
     }
 
     &__single-view__tile-list {

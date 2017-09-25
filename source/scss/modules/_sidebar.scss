@@ -34,13 +34,19 @@ $black: #333;
 }
 
 
-@include sm {
-  .sidebar {
+@include lg {
+  .sidebar__button-is-md-screen {
     display: none;
   }
 }
 
 @include md {
+  .sidebar {
+    display: none;
+  }
+}
+
+@include sm {
   .sidebar {
     display: none;
   }

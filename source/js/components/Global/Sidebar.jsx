@@ -63,7 +63,7 @@ export default class Sidebar extends Component {
           <button
             onClick={ this.getRandomColor }
             >
-            Random Color
+            Random <span className="sidebar__button-is-md-screen">Color</span>
           </button>
         </Link>
         <ul className=''>

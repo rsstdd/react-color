@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-// import { reduxForm, Field, Form } from 'redux-form';
 import PropTypes from 'prop-types';
 import { filterBySearch, updateSearchTerm } from '../../actions/colorAction';
 
@@ -24,14 +23,12 @@ export default class Menu extends Component {
     super();
 
     this.handleChange = this.handleChange.bind(this);
-    // this.handleSearch = this.handleSearch.bind(this)
   }
   
   handleChange(event) {
-    const { dispatch } = this.props;
+    const { dispatch, searchTerm, colorData } = this.props;
     const search = event.target.value.toLowerCase();
     dispatch(updateSearchTerm(search));
-    const { searchTerm, colorData } = this.props;
     dispatch(filterBySearch(searchTerm, colorData));
   };
 

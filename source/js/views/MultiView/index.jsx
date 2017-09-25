@@ -10,7 +10,7 @@ import { getColors, setCurrentColor } from '../../actions/colorAction';
   colorData: state.app.get('colorData'),
   colorDataError: state.app.get('colorDataError'),
   colorDataLoading: state.app.get('colorDataLoading'),
-    
+
     // Filters
   currentColor: state.app.get('currentColor'),
   filteredColors: state.app.get('filteredColors'),
@@ -29,7 +29,7 @@ export default class MultiView extends Component {
       currentPage: 1, // TODO Pagination in Redux
       tilesPerPage: 10,
     }
-    
+
     this.onSelectColor = this.onSelectColor.bind(this);
     this.handleChangePage = this.handleChangePage.bind(this);
    }
@@ -68,14 +68,14 @@ export default class MultiView extends Component {
       tileName: "tile__name"
     };
 
-    // Pagination
+      // Pagination
     const { currentPage, tilesPerPage } = this.state;
     const pageLength = this.props.colorData ? this.props.colorData : 0;
     let indexOfLastTile = currentPage * tilesPerPage;
     let indexOfFirstTile = indexOfLastTile - tilesPerPage;
     let pageNumbers = [];
     let currentTiles; 
-    
+
     for (let i = 1; i <= Math.ceil(103 / this.state.tilesPerPage); i++) {
       pageNumbers.push(i);
     }

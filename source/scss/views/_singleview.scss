@@ -15,7 +15,7 @@ $white: #fff;
     // Styles
 // ---------------------------------
 .single-view {
-  
+
   // Big single Tile
   &__tile {
     border-radius: .35rem;
@@ -23,7 +23,7 @@ $white: #fff;
                 0 3px 6px rgba(51,51,51,0.23);
     transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   }
-  
+
     // Big tile Name
   &__tile--name {
     padding: 1rem 1.5rem;
@@ -31,19 +31,19 @@ $white: #fff;
     border-bottom-right-radius: .35rem;
     border-bottom-left-radius: .35rem;
   }
-  
+
     // Small tile container
   &__tile-list {
     border-radius: .35rem;
   }
-  
+
     // Small tiles 
   &__single-view-tile {
     border-radius: .35rem;
     box-shadow: 0 1px 3px rgba(51,51,51,0.12), 
                 0 1px 2px rgba(51,51,51,0.24);
   }
-  
+
     // Small tile Name
   &__single-view-tile__name {
     font-size: .5em;
@@ -53,20 +53,20 @@ $white: #fff;
     border: 0.0025rem solid $border-color;
     border-bottom-right-radius: .35rem;
     border-bottom-left-radius: .35rem;
-  
+
     h3 {
       margin: 0;
     }
   }
-  
+
   &__single-view-small-tile--disabled {
     pointer-events: none;
-      
+
     a[disabled] {
       pointer-events: none;
     }
   }
-  
+
   &__button {
     button {
       align-self: center;

@@ -8,7 +8,7 @@ import {
 
   // SET COLOR 
   SET_ACTIVE_COLOR,
-  
+
     // FILTER COLOR
   SIDEBAR_FILTER_COLOR,
   SET_FILTER_OPTIONS,
@@ -41,9 +41,6 @@ function updateSearchTerm(searchString) {
 function filterBySearch(searchTerm, colorData) {
   const searchFilter = colorData.filter((el) => {
     const valString = el.color;
-    console.log(valString);
-    console.log(searchTerm);
-    console.log(valString.indexOf(searchTerm) === 0);
     if (valString.indexOf(searchTerm.toLowerCase()) === 0) {
       return true;
     }
@@ -91,7 +88,6 @@ const getColors = () => {
 
 export {
   setFilterOnColor,
-  setFilterOptions,
   getColors,
   filterBySearch,
   setCurrentColor,

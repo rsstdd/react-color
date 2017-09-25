@@ -11,7 +11,7 @@ import {
 
     // SET COLOR
   SET_ACTIVE_COLOR,
-  
+
   // FILTER COLOR
   SIDEBAR_FILTER_COLOR,
   UPDATE_SEARCH_STRING,
@@ -28,21 +28,18 @@ const actionsMap = {
       currentColor: action.data,
     }));
   },
-
   [UPDATE_SEARCH_STRING]: (state, action) => {
     const searchTerm = state.get('searchTerm');
     return state.merge(Map({
       searchTerm: action.data,
     }));
   },
-
   [SIDEBAR_FILTER_COLOR]: (state, action) => {
     const filteredColors = state.get('filteredColors');
     return state.merge(Map({
       filteredColors: action.data,
     }));
   },
-  
   [SEARCH_STRING_FILTER]: (state, action) => {
     const filteredColors = state.get('filteredColors');
     return state.merge(Map({

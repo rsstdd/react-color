@@ -1,4 +1,4 @@
-import * as api from '../api';
+import { ColorApi } from '../api';
 import {
     // COLOR
   FETCH_COLOR,
@@ -7,42 +7,56 @@ import {
   FETCH_COLOR_SUCCESS,
 
   // SET COLOR 
-  SET_COLOR,
+  SET_ACTIVE_COLOR,
   
     // FILTER COLOR
-  FILTER_COLOR,
-  SET_FILTER_OPTIONS
+  SIDEBAR_FILTER_COLOR,
+  SET_FILTER_OPTIONS,
+  SEARCH_STRING_FILTER,
+  UPDATE_SEARCH_STRING,
 } from '../constants/actionTypes';
 
   // Non Async Action
 function setCurrentColor(color) {
   return {
-    type: SET_COLOR,
+    type: SET_ACTIVE_COLOR,
     data: color
   };
 }
 
 function setFilterOnColor(colorArr) {
   return {
-    type: FILTER_COLOR,
+    type: SIDEBAR_FILTER_COLOR,
     data: colorArr
   };
 }
 
-// const filteredList = (filter = '', list = []) => {
-//   if (filter) {
-//     return list.filter((el) => {
-//       return Object.keys(el).some((prop) => {
-//         return el[prop] &&
-//           typeof el[prop] === 'string' &&
-//           el[prop].toLowerCase().indexOf(filter.toLowerCase()) >= 0;
-//       });
-//     });
-//   }
-// 
-//   return list;
-// };
+function updateSearchTerm(searchString) {
+  return {
+    type: UPDATE_SEARCH_STRING,
+    data: searchString
+  }
+}
 
+function filterBySearch(searchTerm, colorData) {
+  const searchFilter = colorData.filter((color) => {
+    for (const key in color) {
+      const valString = color.color.toString().toLowerCase();
+
+      if (valString.indexOf(searchTerm.toLowerCase()) !== -1) {
+
+        return true;
+      }
+    }
+
+      return false;
+    });
+
+  return {
+      type: SEARCH_STRING_FILTER,
+      data: searchFilter
+    }
+  }
 
   // Async COLORS
 function fetchColorStart() {
@@ -69,7 +83,7 @@ const getColors = () => {
   return function (dispatch) {
     dispatch(fetchColorStart());
 
-    api.getColors()
+    ColorApi.getColors()
       .then(data => {
         dispatch(fetchColorSuccess(data))
       })
@@ -81,5 +95,7 @@ export {
   setFilterOnColor,
   setFilterOptions,
   getColors,
+  filterBySearch,
   setCurrentColor,
+  updateSearchTerm,
 }

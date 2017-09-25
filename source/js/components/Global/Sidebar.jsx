@@ -43,7 +43,7 @@ export default class Sidebar extends Component {
     let color = capColor.toLowerCase();
     
     if (color === 'all') {
-      colorArr.push(color)
+      colorArr.push(color);
     } else {
       let colorArr = colorData ? colorData.filter(item => item.color === color) : [];
       dispatch(setFilterOnColor(colorArr));

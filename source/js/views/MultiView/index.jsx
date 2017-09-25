@@ -6,13 +6,14 @@ import Loading from '../../components/Loading';
 import { getColors, setCurrentColor } from '../../actions/colorAction';
 
 @connect(state => ({
+    // Colors
   colorData: state.app.get('colorData'),
   colorDataError: state.app.get('colorDataError'),
   colorDataLoading: state.app.get('colorDataLoading'),
+    
+    // Filters
   currentColor: state.app.get('currentColor'),
   filteredColors: state.app.get('filteredColors'),
-  uniqueItems: state.app.get('filterColor'),
-  filterColorOptions: state.app.get('filterColorOptions'),
 }))
 export default class MultiView extends Component {
   static propTypes = {
@@ -25,7 +26,7 @@ export default class MultiView extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentPage: 1,
+      currentPage: 1, // TODO Pagination in Redux
       tilesPerPage: 10,
     }
     
@@ -66,13 +67,14 @@ export default class MultiView extends Component {
       tileDiv: "tile Layout__tile", 
       tileName: "tile__name"
     };
+
     // Pagination
     const { currentPage, tilesPerPage } = this.state;
     const pageLength = this.props.colorData ? this.props.colorData : 0;
     let indexOfLastTile = currentPage * tilesPerPage;
     let indexOfFirstTile = indexOfLastTile - tilesPerPage;
     let pageNumbers = [];
-    let currentTiles;
+    let currentTiles; 
     
     for (let i = 1; i <= Math.ceil(103 / this.state.tilesPerPage); i++) {
       pageNumbers.push(i);

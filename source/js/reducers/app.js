@@ -10,26 +10,41 @@ import {
   FETCH_COLOR_SUCCESS,
 
     // SET COLOR
-  SET_COLOR,
+  SET_ACTIVE_COLOR,
   
   // FILTER COLOR
-  FILTER_COLOR,
-  SET_FILTER_OPTIONS
+  SIDEBAR_FILTER_COLOR,
+  UPDATE_SEARCH_STRING,
+  SEARCH_STRING_FILTER,
 } from '../constants/actionTypes';
 
 const actionsMap = {
   // ---------------------
     // SYNC COLOR ACTIONS
   // ---------------------
-  [SET_COLOR]: (state, action) => {
+  [SET_ACTIVE_COLOR]: (state, action) => {
     const currentColor = state.get('currentColor');
     return state.merge(Map({
       currentColor: action.data,
     }));
   },
 
-  [FILTER_COLOR]: (state, action) => {
-    const filterColors = state.get('filterColors');    
+  [UPDATE_SEARCH_STRING]: (state, action) => {
+    const searchTerm = state.get('searchTerm');
+    return state.merge(Map({
+      searchTerm: action.data,
+    }));
+  },
+
+  [SIDEBAR_FILTER_COLOR]: (state, action) => {
+    const filteredColors = state.get('filteredColors');
+    return state.merge(Map({
+      filteredColors: action.data,
+    }));
+  },
+  
+  [SEARCH_STRING_FILTER]: (state, action) => {
+    const filteredColors = state.get('filteredColors');
     return state.merge(Map({
       filteredColors: action.data,
     }));

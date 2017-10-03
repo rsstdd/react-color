@@ -3,7 +3,7 @@ import Routes from 'config/routes';
 import PropTypes from 'prop-types';
 
 import Menu from 'components/Global/Menu';
-import Sidebar from 'components/Global/SideBar';
+import Sidebar from 'components/Global/Sidebar';
 
 export default class App extends Component {
   static propTypes = {

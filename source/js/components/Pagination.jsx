@@ -2,20 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-const propTypes = {
-  items: PropTypes.array.isRequired,
-  onChangePage: PropTypes.func.isRequired,
-  initialPage: PropTypes.number
-}
-
-const defaultProps = {
-  initialPage: 1
-}
-
 @connect(state => ({
   // pager: state.app.get('pager');
 }))
 class Pagination extends React.Component {
+  const propTypes = {
+    items: PropTypes.array.isRequired,
+    onChangePage: PropTypes.func.isRequired,
+    initialPage: PropTypes.number
+  }
+
+  const defaultProps = {
+    initialPage: 1
+  }
 
   constructor(props) {
     super(props);

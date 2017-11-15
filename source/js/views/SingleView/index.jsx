@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Loading from '../../components/Loading';
 import Tile from '../../components/MultiTile';
-import { setCurrentColor, getColorById } from '../../actions/colorAction';
+import { setCurrentColor, getColors } from '../../actions/colorAction';
 
 @connect(state => ({
     // Colors
@@ -16,22 +16,49 @@ import { setCurrentColor, getColorById } from '../../actions/colorAction';
 export default class SinlgeView extends Component {
   static propTypes = {
     colorData: PropTypes.array,
-    currentColor: PropTypes.object,
+    currentColor: PropTypes.string,
     dispatch: PropTypes.func,
   }
 
   constructor(props) {
     super(props);
     
+    this.state = {
+      id: '',
+    };
+
     this.onSelectColor = this.onSelectColor.bind(this);
   }
+  
+  // componentDidMount() {
+  //   const { dispatch } = this.props;
+  //   const routerId = this.props.match.params.id;
+  // 
+  //   if (!this.props.colorData) dispatch(getColors());
+  // 
+  //   dispatch(setCurrentColor(routerId))
+  // }
+  // 
+  // 
+  // componentDidUpdate(prevProps, prevState) {
+  //   const { dispatch } = this.props;
+  //   const routerId = this.props.match.params.id;
+  // 
+  //   if (prevProps == undefined) return false;
+  //   
+  //   console.log('== ROUTER ID ===>', routerId);
+  //   
+  //   dispatch(setCurrentColor(routerId));
+  //   this.setState({ id: routerId });
+  // }
 
   onSelectColor(color) {
-    const { dispatch } = this.props;
+    const { dispatch } = this.props.params;
     dispatch(setCurrentColor(color));
   }
 
   render() {
+    console.log('=== this.props.match.id ===>', this.props.match.params.id);
     const { currentColor, colorData } = this.props;
     const { color, hex, id } = currentColor ? currentColor : '';
     let divColor = {

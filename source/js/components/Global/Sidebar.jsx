@@ -14,7 +14,7 @@ import { setFilterOnColor, setCurrentColor } from '../../actions/colorAction';
 export default class Sidebar extends Component {
   static propTypes = {
     colorData: PropTypes.array,
-    currentColor: PropTypes.object,
+    currentColor: PropTypes.string,
     filteredColors: PropTypes.array,
     dispatch: PropTypes.func,
   }

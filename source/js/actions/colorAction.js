@@ -16,7 +16,7 @@ import {
   UPDATE_SEARCH_STRING,
 } from '../constants/actionTypes';
 
-  // Non Async Action
+  // Synchronous Action
 function setCurrentColor(color) {
   return {
     type: SET_ACTIVE_COLOR,

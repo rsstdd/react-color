@@ -18,7 +18,7 @@ import { getColors, setCurrentColor } from '../../actions/colorAction';
 export default class MultiView extends Component {
   static propTypes = {
     colorData: PropTypes.array,
-    currentColor: PropTypes.object,
+    currentColor: PropTypes.string,
     filteredColors: PropTypes.array,
     dispatch: PropTypes.func,
   }
@@ -74,7 +74,7 @@ export default class MultiView extends Component {
     let indexOfLastTile = currentPage * tilesPerPage;
     let indexOfFirstTile = indexOfLastTile - tilesPerPage;
     let pageNumbers = [];
-    let currentTiles; 
+    let currentTiles;
 
     for (let i = 1; i <= Math.ceil(103 / this.state.tilesPerPage); i++) {
       pageNumbers.push(i);

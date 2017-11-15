@@ -1,4 +1,4 @@
-// Reecuers/app.js
+// Reduers/app.js
 
 import initialState from './initialState';
 import { Map } from 'immutable';
